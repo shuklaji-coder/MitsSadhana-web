@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400&family=Rozha+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-saffron: #E8641D;
+  --color-saffron-light: #FF7B38;
+  --color-gold: #FFD34D;
+  --color-gold-deep: #D4AF37;
+  --color-amber-glow: #FFB74D;
+  --color-sandalwood: #FFF8F0;
+  --color-sandalwood-muted: #F7EFE5;
+  --color-deep-clay: #2B1B12;
+  --color-deep-clay-dark: #1A100B;
+  --color-clay-card: rgba(43, 27, 18, 0.75);
+  
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-devanagari: 'Rozha One', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-deep-clay-dark);
+  color: #F8FAF6;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-deep-clay-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #E8641D, #FFD34D);
+  border-radius: 4px;
+}
+
+/* Typography Utilities */
+.font-serif-title {
+  font-family: var(--font-serif);
+}
+.font-devanagari {
+  font-family: var(--font-devanagari);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF5D6 0%, #FFD34D 50%, #E8641D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-shiny-text {
+  background: linear-gradient(90deg, #FFD34D 0%, #FFF 50%, #FFD34D 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: rgba(43, 27, 18, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 211, 77, 0.2);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 211, 77, 0.5);
+  box-shadow: 0 20px 50px 0 rgba(232, 100, 29, 0.25),
+              inset 0 1px 2px 0 rgba(255, 211, 77, 0.3);
+  transform: translateY(-8px);
+}
+
+.glass-card-light {
+  background: rgba(255, 248, 240, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(232, 100, 29, 0.15);
+  box-shadow: 0 10px 30px rgba(43, 27, 18, 0.08);
+}
+
+.glass-button {
+  background: rgba(255, 211, 77, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 211, 77, 0.4);
+  color: #FFF;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.glass-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: 0.6s;
+}
+
+.glass-button:hover::before {
+  left: 100%;
+}
+
+.glass-button:hover {
+  background: rgba(255, 211, 77, 0.25);
+  border-color: rgba(255, 211, 77, 0.8);
+  box-shadow: 0 0 25px rgba(255, 211, 77, 0.4);
+  transform: translateY(-3px);
+}
+
+.gold-primary-button {
+  background: linear-gradient(135deg, #E8641D 0%, #FF9E2C 50%, #FFD34D 100%);
+  color: #1A100B;
+  font-weight: 700;
+  box-shadow: 0 8px 25px rgba(232, 100, 29, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.gold-primary-button:hover {
+  box-shadow: 0 12px 35px rgba(255, 211, 77, 0.6);
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Animations */
+@keyframes ken-burns {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08) translate(-1%, -1%); }
+  100% { transform: scale(1); }
+}
+
+.animate-ken-burns {
+  animation: ken-burns 25s ease-in-out infinite alternate;
+}
+
+@keyframes halo-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 211, 77, 0.4), 0 0 40px rgba(232, 100, 29, 0.3), inset 0 0 15px rgba(255, 211, 77, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(255, 211, 77, 0.8), 0 0 80px rgba(232, 100, 29, 0.6), inset 0 0 25px rgba(255, 211, 77, 0.6);
+  }
+}
+
+.animate-halo-pulse {
+  animation: halo-pulse 4s ease-in-out infinite;
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+.animate-float-gentle {
+  animation: float-gentle 6s ease-in-out infinite;
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 90s linear infinite;
+}
+
+@keyframes flame-flicker {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  25% { opacity: 0.85; transform: scale(1.05) skewX(2deg); }
+  50% { opacity: 0.95; transform: scale(0.95) skewX(-2deg); }
+  75% { opacity: 0.8; transform: scale(1.08); }
+}
+
+.animate-flame {
+  animation: flame-flicker 2s ease-in-out infinite;
+}
+
+/* Subtle glowing line divider */
+.gold-line-draw {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FFD34D, #E8641D, #FFD34D, transparent);
+}
+
+/* Mobile Responsiveness (<640px) */
+@media (max-width: 640px) {
+  section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .hero-nav {
+    padding: 12px 16px !important;
+  }
+  .hero-nav-title {
+    font-size: 18px !important;
+    letter-spacing: 1px !important;
+  }
+  .hero-nav-ram {
+    font-size: 11px !important;
+    letter-spacing: 1px !important;
+  }
+  .hero-nav-om {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 14px !important;
+  }
+  .hero-main-om {
+    width: 72px !important;
+    height: 72px !important;
+    font-size: 36px !important;
+  }
+  .hero-center-content {
+    padding: 8px 16px !important;
+  }
+  .hero-center-content h1 {
+    font-size: clamp(32px, 9vw, 48px) !important;
+    margin-bottom: 8px !important;
+  }
+  .glass-card {
+    padding: 20px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-nav-ram {
+    display: none !important;
+  }
+}
+
+
