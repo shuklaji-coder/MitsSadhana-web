@@ -2,6 +2,7 @@ import React from 'react';
 import { TempleGateIntro } from './components/TempleGateIntro';
 import { Hero } from './components/Hero';
 import { About, Features, HowItWorks } from './components/Sections1';
+import { EcoPickupSection } from './components/EcoPickupSection';
 import { AppShowcase, Testimonials, DownloadCTA, Footer } from './components/Sections2';
 
 export function App() {
@@ -11,6 +12,7 @@ export function App() {
       <Hero />
       <About />
       <Features />
+      <EcoPickupSection />
       <HowItWorks />
       <AppShowcase />
       <Testimonials />

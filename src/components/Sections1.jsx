@@ -110,9 +110,9 @@ export const Features = () => {
 
 export const HowItWorks = () => {
   const steps = [
-    { n:'01', emoji:'🧭', title:'Choose Your Ritual', sub:'Personalized Selections', desc:'Select from 50+ Vedic poojas, Havans, or daily samagri kits tailored to your gotra and Nakshatra.' },
-    { n:'02', emoji:'✅', title:'Book Pandit / Samagri', sub:'Seamless Scheduling', desc:'Schedule a certified priest or get pure organic pooja items delivered at your preferred Muhurat time.' },
-    { n:'03', emoji:'🪔', title:'Experience Divine Connection', sub:'Sacred Fulfillment', desc:'Perform your sadhana with tranquility while tracking your daily chants, Gita verses, and spiritual progress.' },
+    { n:'01', emoji:'🧭', title:'Choose Your Ritual', sub:'Personalized Selections', desc:'Select from 50+ Vedic poojas, Havans, or daily samagri kits tailored to your gotra and Nakshatra.', img: '/image copy.png' },
+    { n:'02', emoji:'✅', title:'Book Pandit / Samagri', sub:'Seamless Scheduling', desc:'Schedule a certified priest or get pure organic pooja items delivered at your preferred Muhurat time.', img: '/image copy 2.png' },
+    { n:'03', emoji:'🪔', title:'Experience Divine Connection', sub:'Sacred Fulfillment', desc:'Perform your sadhana with tranquility while tracking your daily chants, Gita verses, and spiritual progress.', img: '/image copy 3.png' },
   ];
   return (
     <section id="how-it-works" style={{ position:'relative', width:'100%', padding:'112px 24px', background:'#FFF8F0', color:'#2B1B12', overflow:'hidden' }}>
@@ -136,8 +136,14 @@ export const HowItWorks = () => {
             <motion.div key={i} initial={{ opacity:0, y:35 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ duration:0.8, delay:i * 0.2 }}
               style={{ display:'flex', flexDirection:'column', alignItems:'center', textAlign:'center' }}>
               <div style={{ position:'relative', marginBottom:28 }}>
-                <div style={{ width:96, height:96, borderRadius:'50%', background:'linear-gradient(135deg,#2B1B12,#1A100B)', border:'2px solid rgba(255,211,77,0.6)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:36, boxShadow:'0 8px 32px rgba(0,0,0,0.25)' }}>{s.emoji}</div>
-                <div style={{ position:'absolute', bottom:-8, right:0, width:28, height:28, borderRadius:'50%', background:'#E8641D', color:'#fff', fontSize:10, fontWeight:700, display:'flex', alignItems:'center', justifyContent:'center', boxShadow:'0 2px 8px rgba(0,0,0,0.3)' }}>{s.n}</div>
+                {s.img ? (
+                  <div style={{ width:200, height:160, borderRadius:20, overflow:'hidden', border:'2px solid rgba(255,211,77,0.8)', boxShadow:'0 8px 32px rgba(0,0,0,0.25)' }}>
+                    <img src={s.img} alt={s.title} style={{ width:'100%', height:'100%', objectFit:'cover' }} />
+                  </div>
+                ) : (
+                  <div style={{ width:96, height:96, borderRadius:'50%', background:'linear-gradient(135deg,#2B1B12,#1A100B)', border:'2px solid rgba(255,211,77,0.6)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:36, boxShadow:'0 8px 32px rgba(0,0,0,0.25)' }}>{s.emoji}</div>
+                )}
+                <div style={{ position:'absolute', bottom:-8, right:s.img ? -8 : 0, width:28, height:28, borderRadius:'50%', background:'#E8641D', color:'#fff', fontSize:10, fontWeight:700, display:'flex', alignItems:'center', justifyContent:'center', boxShadow:'0 2px 8px rgba(0,0,0,0.3)', border:'1.5px solid #fff' }}>{s.n}</div>
               </div>
               <span style={{ fontSize:10, textTransform:'uppercase', letterSpacing:3, color:'#E8641D', fontWeight:700, marginBottom:8 }}>{s.sub}</span>
               <h3 style={{ fontFamily:'"Playfair Display",serif', fontSize:22, fontWeight:700, color:'#2B1B12', marginBottom:12 }}>{s.title}</h3>

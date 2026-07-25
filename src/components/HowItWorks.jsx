@@ -10,6 +10,7 @@ export const HowItWorks = () => {
       subtitle: 'Personalized Selections',
       description: 'Select from over 50+ Vedic poojas, Havans, or daily samagri delivery kits tailored to your gotra and Nakshatra.',
       icon: <Compass className="w-8 h-8 text-[#FFD34D]" />,
+      image: '/image copy.png'
     },
     {
       number: '02',
@@ -17,6 +18,7 @@ export const HowItWorks = () => {
       subtitle: 'Seamless Scheduling',
       description: 'Schedule a certified priest or get pure organic pooja items delivered straight to your home at your preferred Muhurat time.',
       icon: <UserCheck className="w-8 h-8 text-[#FFD34D]" />,
+      image: '/image copy 2.png'
     },
     {
       number: '03',
@@ -24,6 +26,7 @@ export const HowItWorks = () => {
       subtitle: 'Sacred Fulfillment',
       description: 'Perform your sadhana with tranquility while tracking your daily chants, Gita verses, and spiritual progress.',
       icon: <Flame className="w-8 h-8 text-[#FFD34D] animate-flame" />,
+      image: '/image copy 3.png'
     }
   ];
 
@@ -94,13 +97,19 @@ export const HowItWorks = () => {
               transition={{ duration: 0.8, delay: idx * 0.25 }}
               className="relative z-10 flex flex-col items-center text-center group"
             >
-              {/* Step Circle Badge */}
+              {/* Step Circle / Image Badge */}
               <div className="relative mb-8">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#2B1B12] to-[#1A100B] border-2 border-[#FFD34D]/60 flex items-center justify-center shadow-xl group-hover:border-[#FFD34D] group-hover:scale-105 transition-all duration-300">
-                  {step.icon}
-                </div>
+                {step.image ? (
+                  <div className="w-44 h-36 sm:w-52 sm:h-40 rounded-2xl overflow-hidden border-2 border-[#FFD34D]/80 shadow-xl group-hover:scale-105 transition-all duration-300">
+                    <img src={step.image} alt={step.title} className="w-full h-full object-cover" />
+                  </div>
+                ) : (
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#2B1B12] to-[#1A100B] border-2 border-[#FFD34D]/60 flex items-center justify-center shadow-xl group-hover:border-[#FFD34D] group-hover:scale-105 transition-all duration-300">
+                    {step.icon}
+                  </div>
+                )}
                 {/* Step Number Tag */}
-                <div className="absolute -bottom-2 right-0 w-8 h-8 rounded-full bg-[#E8641D] text-white font-bold text-xs flex items-center justify-center shadow-md border border-white">
+                <div className="absolute -bottom-2 -right-1 w-8 h-8 rounded-full bg-[#E8641D] text-white font-bold text-xs flex items-center justify-center shadow-md border border-white">
                   {step.number}
                 </div>
                 {/* Pulsing halo behind badge */}
