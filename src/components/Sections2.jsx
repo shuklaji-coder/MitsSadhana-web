@@ -156,7 +156,9 @@ export const Testimonials = () => {
   );
 };
 
-export const DownloadCTA = () => (
+export const DownloadCTA = () => {
+  const [showComingSoon, setShowComingSoon] = useState(false);
+  return (
   <section id="download" style={{ position:'relative', width:'100%', padding:'128px 24px', background:'#1A100B', overflow:'hidden', textAlign:'center' }}>
     <div className="animate-rotate-slow" style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:900, height:900, borderRadius:'50%', background:'conic-gradient(from 0deg,rgba(255,211,77,0.15),transparent 30deg,rgba(232,100,29,0.12),transparent 60deg,rgba(255,211,77,0.1),transparent 90deg)', pointerEvents:'none', opacity:0.6 }} />
     <div style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse at center, transparent 20%, #1A100B 75%)', pointerEvents:'none' }} />
@@ -174,14 +176,26 @@ export const DownloadCTA = () => (
         Download now and connect with authentic Pandits, fresh pooja supplies, Gita insights, and daily mantra reminders.
       </motion.p>
       <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ delay:0.5, duration:0.8 }} style={{ display:'flex', flexWrap:'wrap', gap:16, justifyContent:'center' }}>
-        <a href="#" className="gold-primary-button" style={{ padding:'16px 36px', borderRadius:999, display:'flex', alignItems:'center', gap:10, textDecoration:'none', fontSize:16, fontWeight:700, boxShadow:'0 0 35px rgba(232,100,29,0.5)' }}>
+        <button onClick={() => setShowComingSoon(true)} className="gold-primary-button" style={{ padding:'16px 36px', borderRadius:999, display:'flex', alignItems:'center', gap:10, textDecoration:'none', fontSize:16, fontWeight:700, boxShadow:'0 0 35px rgba(232,100,29,0.5)', cursor:'pointer', border:'2px solid #FFD34D' }}>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.81,8.88L14.81,13.12L16.81,15.12M4.55,1.27L14.28,11.01L12.28,13.01L4.55,5.28Z"/></svg>
           Get it on Google Play
-        </a>
+        </button>
       </motion.div>
+      {showComingSoon && (
+        <motion.div
+          initial={{ opacity:0, y:20, scale:0.9 }}
+          animate={{ opacity:1, y:0, scale:1 }}
+          exit={{ opacity:0, y:20, scale:0.9 }}
+          style={{ marginTop:24, padding:'14px 28px', borderRadius:999, background:'rgba(43,27,18,0.95)', border:'2px solid #FFD34D', boxShadow:'0 0 30px rgba(255,211,77,0.4)', fontFamily:'"Rozha One",serif', fontSize:'clamp(14px,3vw,18px)', color:'#FFD34D', letterSpacing:2, display:'flex', alignItems:'center', gap:10 }}
+        >
+          <span>🛕</span>
+          <span>Coming Soon!</span>
+        </motion.div>
+      )}
     </div>
   </section>
 );
+}
 
 export const Footer = () => (
   <footer style={{ background:'#0F0805', padding:'40px 24px', borderTop:'1px solid rgba(255,255,255,0.06)' }}>
