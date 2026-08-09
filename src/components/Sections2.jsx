@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { FloatingPetals, Diya, OmSvg } from './AmbientDecor';
 
 export const AppShowcase = () => {
   const [active, setActive] = useState(0);
@@ -73,11 +74,12 @@ export const AppShowcase = () => {
   };
   return (
     <section id="showcase" style={{ position:'relative', width:'100%', padding:'112px 24px', background:'linear-gradient(to bottom,#1A100B,#2B1B12,#1A100B)', color:'#fff', overflow:'hidden' }}>
+      <FloatingPetals count={6} />
       <div style={{ maxWidth:1280, margin:'0 auto', position:'relative', zIndex:1 }}>
         <div style={{ textAlign:'center', maxWidth:700, margin:'0 auto 56px' }}>
           <motion.h2 initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ duration:0.7 }}
             style={{ fontFamily:'"Playfair Display",serif', fontSize:'clamp(28px,5vw,48px)', fontWeight:700 }}>
-            Your Personal <span style={{ background:'linear-gradient(135deg,#FFF5D6,#FFD34D,#E8641D)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', fontStyle:'italic' }}>Divine Sanctuary</span>
+            Your Personal <span className="gold-shimmer" style={{ fontStyle:'italic' }}>Divine Sanctuary</span>
           </motion.h2>
         </div>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:32, alignItems:'center' }}>
@@ -161,16 +163,24 @@ export const DownloadCTA = () => {
   return (
   <section id="download" style={{ position:'relative', width:'100%', padding:'128px 24px', background:'#1A100B', overflow:'hidden', textAlign:'center' }}>
     <div className="animate-rotate-slow" style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:900, height:900, borderRadius:'50%', background:'conic-gradient(from 0deg,rgba(255,211,77,0.15),transparent 30deg,rgba(232,100,29,0.12),transparent 60deg,rgba(255,211,77,0.1),transparent 90deg)', pointerEvents:'none', opacity:0.6 }} />
+    <OmSvg size={700} style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', opacity:0.05, pointerEvents:'none', stroke:'#FFD34D' }} />
+    <FloatingPetals count={10} />
     <div style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse at center, transparent 20%, #1A100B 75%)', pointerEvents:'none' }} />
     <div style={{ maxWidth:800, margin:'0 auto', position:'relative', zIndex:1, display:'flex', flexDirection:'column', alignItems:'center' }}>
       <motion.div initial={{ scale:0.8, opacity:0 }} whileInView={{ scale:1, opacity:1 }} viewport={{ once:true }} transition={{ duration:1 }} style={{ position:'relative', marginBottom:32 }}>
+        <div className="animate-pulse-ring" style={{ position:'absolute', inset:0, borderRadius:'50%', border:'1.5px solid rgba(255,211,77,0.6)' }} />
         <div className="animate-halo-pulse" style={{ width:140, height:140, borderRadius:'50%', border:'2px solid #FFD34D', background:'rgba(43,27,18,0.9)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:72, color:'#FFD34D', fontFamily:'"Rozha One",serif', boxShadow:'0 0 80px rgba(255,211,77,0.6)', cursor:'pointer' }}>ॐ</div>
       </motion.div>
+      <div style={{ display:'flex', gap:40, marginBottom:8 }}>
+        <Diya size={30} />
+        <Diya size={22} style={{ marginTop:10 }} />
+        <Diya size={30} />
+      </div>
       <motion.h3 initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ delay:0.2, duration:0.8 }}
         style={{ fontFamily:'"Rozha One",serif', fontSize:'clamp(28px,5vw,52px)', color:'#FFD34D', letterSpacing:6, marginBottom:16, textShadow:'0 0 30px rgba(255,211,77,0.5)' }}>।। जय श्री राम ।।</motion.h3>
       <motion.h2 initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ delay:0.3, duration:0.8 }}
         style={{ fontFamily:'"Playfair Display",serif', fontSize:'clamp(28px,5vw,52px)', fontWeight:700, color:'#fff', marginBottom:16 }}>
-        Begin Your <span style={{ background:'linear-gradient(135deg,#FFF5D6,#FFD34D,#E8641D)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', fontStyle:'italic' }}>Divine Sadhana</span>
+        Begin Your <span className="gold-shimmer" style={{ fontStyle:'italic' }}>Divine Sadhana</span>
       </motion.h2>
       <motion.p initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ delay:0.4, duration:0.8 }} style={{ fontSize:18, color:'rgba(255,255,255,0.75)', fontWeight:300, maxWidth:600, marginBottom:40, lineHeight:1.7 }}>
         Download now and connect with authentic Pandits, fresh pooja supplies, Gita insights, and daily mantra reminders.

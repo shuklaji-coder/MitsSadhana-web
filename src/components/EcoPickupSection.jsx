@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Truck, Waves, RefreshCw, HeartHandshake, Coins, Leaf, Sparkles, ArrowRight, CheckCircle2, Calendar, Flower2 } from 'lucide-react';
+import { FloatingPetals } from './AmbientDecor';
 
 export const EcoPickupSection = () => {
   const steps = [
@@ -96,6 +97,8 @@ export const EcoPickupSection = () => {
       {/* Subtle Background Glows (Green & Amber Eco Aura) */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#10B981]/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#E8641D]/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <FloatingPetals count={8} />
 
       <div className="max-w-7xl mx-auto relative z-10">
         

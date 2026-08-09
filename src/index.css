@@ -210,6 +210,119 @@ body {
   background: linear-gradient(90deg, transparent, #FFD34D, #E8641D, #FFD34D, transparent);
 }
 
+/* Floating Petals */
+@keyframes petal-fall {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 0.9; }
+  100% {
+    transform: translateY(110vh) translateX(60px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-petal {
+  position: absolute;
+  top: -20px;
+  border-radius: 100% 0 100% 0;
+  opacity: 0;
+  animation: petal-fall linear infinite;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px rgba(255, 211, 77, 0.4));
+}
+
+/* Diya Flame Flicker + Glow */
+@keyframes diya-flicker {
+  0%, 100% {
+    transform: scale(1) rotate(-3deg);
+    box-shadow: 0 0 20px rgba(255, 179, 74, 0.6), 0 0 40px rgba(232, 100, 29, 0.35);
+  }
+  25% {
+    transform: scale(1.12) rotate(3deg) translateY(-2px);
+    box-shadow: 0 0 28px rgba(255, 179, 74, 0.9), 0 0 55px rgba(232, 100, 29, 0.5);
+  }
+  50% {
+    transform: scale(0.92) rotate(-2deg);
+    box-shadow: 0 0 16px rgba(255, 179, 74, 0.5), 0 0 30px rgba(232, 100, 29, 0.3);
+  }
+  75% {
+    transform: scale(1.08) rotate(4deg) translateY(-1px);
+    box-shadow: 0 0 24px rgba(255, 179, 74, 0.8), 0 0 48px rgba(232, 100, 29, 0.45);
+  }
+}
+
+.animate-diya {
+  animation: diya-flicker 2.4s ease-in-out infinite;
+}
+
+/* Expanding Pulse Ring */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2.4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+/* Gold Shimmer Sweep over Text */
+@keyframes shimmer-sweep {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(110deg, #FFD34D 20%, #FFF8E1 40%, #FFD34D 60%, #E8641D 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-sweep 3.5s linear infinite;
+}
+
+/* Gentle bob up-down */
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-bob {
+  animation: bob 4s ease-in-out infinite;
+}
+
+/* Slow spin for mandala / om */
+@keyframes spin-slow-rev {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.animate-spin-slow-rev {
+  animation: spin-slow-rev 60s linear infinite;
+}
+
+/* Marquee (flowing shloka strip) */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* Mobile Responsiveness (<640px) */
 @media (max-width: 640px) {
   section {

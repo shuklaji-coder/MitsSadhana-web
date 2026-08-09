@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { FloatingPetals } from './AmbientDecor';
 
 // Ambient floating particles canvas
 const AmbientParticles = () => {
@@ -59,6 +60,8 @@ export const Hero = () => {
 
       <AmbientParticles />
 
+      <FloatingPetals count={10} />
+
       {/* Top Nav */}
       <motion.header initial={{ opacity:0, y:-20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.8 }}
         className="hero-nav"
@@ -78,6 +81,8 @@ export const Hero = () => {
 
         {/* Om Badge */}
         <motion.div initial={{ scale:0.8, opacity:0 }} animate={{ scale:1, opacity:1 }} transition={{ duration:1, ease:[0.16,1,0.3,1] }} className="hero-om-container" style={{ marginBottom:20, position:'relative' }}>
+          <div className="animate-pulse-ring" style={{ position:'absolute', inset:0, borderRadius:'50%', border:'1.5px solid rgba(255,211,77,0.6)' }} />
+          <div className="animate-pulse-ring" style={{ position:'absolute', inset:0, borderRadius:'50%', border:'1.5px solid rgba(232,100,29,0.5)', animationDelay:'1.2s' }} />
           <div className="animate-halo-pulse hero-main-om" style={{ width:96, height:96, borderRadius:'50%', border:'2px solid #FFD34D', background:'rgba(43,27,18,0.85)', backdropFilter:'blur(20px)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:48, color:'#FFD34D', fontFamily:'"Rozha One",serif', cursor:'pointer' }}>ॐ</div>
           <div style={{ position:'absolute', inset:-10, borderRadius:'50%', border:'1px solid rgba(232,100,29,0.3)', animation:'ping 2s cubic-bezier(0,0,0.2,1) infinite', opacity:0.4, pointerEvents:'none' }} />
         </motion.div>

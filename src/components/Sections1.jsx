@@ -80,7 +80,7 @@ export const Features = () => {
           </motion.div>
           <motion.h2 initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ duration:0.7, delay:0.1 }}
             style={{ fontFamily:'"Playfair Display",serif', fontSize:'clamp(30px,5vw,48px)', fontWeight:700, marginBottom:16 }}>
-            Empowering Your <span style={{ background:'linear-gradient(135deg,#FFF5D6,#FFD34D,#E8641D)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', fontStyle:'italic' }}>Devotional Journey</span>
+            Empowering Your <span className="gold-shimmer" style={{ fontStyle:'italic' }}>Devotional Journey</span>
           </motion.h2>
           <motion.p initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ duration:0.7, delay:0.2 }} style={{ color:'rgba(255,255,255,0.65)', fontSize:16, fontWeight:300 }}>
             Designed with reverence to make authentic Vedic rituals, pooja supplies, and spiritual wisdom accessible anywhere.
@@ -89,9 +89,9 @@ export const Features = () => {
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))', gap:28 }}>
           {cards.map((c, i) => (
             <motion.div key={i} initial={{ opacity:0, y:40 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ duration:0.7, delay:i * 0.12 }}
-              className="glass-card" style={{ padding:32, display:'flex', flexDirection:'column', cursor:'default' }}>
+              whileHover={{ y:-8, scale:1.02 }} className="glass-card" style={{ padding:32, display:'flex', flexDirection:'column', cursor:'default' }}>
               <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:24 }}>
-                <div style={{ width:56, height:56, borderRadius:16, background:'rgba(232,100,29,0.15)', border:'1px solid rgba(255,211,77,0.3)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:28 }}>{c.emoji}</div>
+                <div className="animate-bob" style={{ animationDelay:`${i * 0.7}s`, width:56, height:56, borderRadius:16, background:'rgba(232,100,29,0.15)', border:'1px solid rgba(255,211,77,0.3)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:28 }}>{c.emoji}</div>
                 <span style={{ fontSize:10, fontWeight:700, letterSpacing:2, textTransform:'uppercase', padding:'4px 10px', borderRadius:999, border:'1px solid rgba(255,211,77,0.3)', color:'#FFD34D', background:'rgba(0,0,0,0.3)' }}>{c.tag}</span>
               </div>
               <p style={{ fontSize:10, textTransform:'uppercase', letterSpacing:3, color:'rgba(255,179,74,0.8)', marginBottom:6, fontWeight:600 }}>{c.sub}</p>
@@ -125,7 +125,7 @@ export const HowItWorks = () => {
           </motion.div>
           <motion.h2 initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ duration:0.7, delay:0.1 }}
             style={{ fontFamily:'"Playfair Display",serif', fontSize:'clamp(30px,5vw,48px)', fontWeight:700, marginBottom:16 }}>
-            How <span style={{ color:'#E8641D', fontStyle:'italic' }}>Mits Sadhana</span> Works
+            How <span className="gold-shimmer" style={{ fontStyle:'italic' }}>Mits Sadhana</span> Works
           </motion.h2>
           <motion.p initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ duration:0.7, delay:0.2 }} style={{ color:'rgba(43,27,18,0.65)', fontSize:16, fontWeight:300 }}>
             Three graceful steps to authentic spiritual fulfillment at your doorstep.
@@ -134,16 +134,16 @@ export const HowItWorks = () => {
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:48, position:'relative' }}>
           {steps.map((s, i) => (
             <motion.div key={i} initial={{ opacity:0, y:35 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ duration:0.8, delay:i * 0.2 }}
-              style={{ display:'flex', flexDirection:'column', alignItems:'center', textAlign:'center' }}>
+              whileHover={{ y:-10 }} style={{ display:'flex', flexDirection:'column', alignItems:'center', textAlign:'center' }}>
               <div style={{ position:'relative', marginBottom:28 }}>
                 {s.img ? (
                   <div style={{ width:200, height:160, borderRadius:20, overflow:'hidden', border:'2px solid rgba(255,211,77,0.8)', boxShadow:'0 8px 32px rgba(0,0,0,0.25)' }}>
-                    <img src={s.img} alt={s.title} style={{ width:'100%', height:'100%', objectFit:'cover' }} />
+                    <img src={s.img} alt={s.title} style={{ width:'100%', height:'100%', objectFit:'cover', transition:'transform 0.5s ease' }} onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.08)'} onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'} />
                   </div>
                 ) : (
-                  <div style={{ width:96, height:96, borderRadius:'50%', background:'linear-gradient(135deg,#2B1B12,#1A100B)', border:'2px solid rgba(255,211,77,0.6)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:36, boxShadow:'0 8px 32px rgba(0,0,0,0.25)' }}>{s.emoji}</div>
+                  <div className="animate-bob" style={{ animationDelay:`${i * 0.6}s`, width:96, height:96, borderRadius:'50%', background:'linear-gradient(135deg,#2B1B12,#1A100B)', border:'2px solid rgba(255,211,77,0.6)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:36, boxShadow:'0 8px 32px rgba(0,0,0,0.25)' }}>{s.emoji}</div>
                 )}
-                <div style={{ position:'absolute', bottom:-8, right:s.img ? -8 : 0, width:28, height:28, borderRadius:'50%', background:'#E8641D', color:'#fff', fontSize:10, fontWeight:700, display:'flex', alignItems:'center', justifyContent:'center', boxShadow:'0 2px 8px rgba(0,0,0,0.3)', border:'1.5px solid #fff' }}>{s.n}</div>
+                <div className="animate-halo-pulse" style={{ position:'absolute', bottom:-8, right:s.img ? -8 : 0, width:28, height:28, borderRadius:'50%', background:'#E8641D', color:'#fff', fontSize:10, fontWeight:700, display:'flex', alignItems:'center', justifyContent:'center', boxShadow:'0 2px 8px rgba(0,0,0,0.3)', border:'1.5px solid #fff' }}>{s.n}</div>
               </div>
               <span style={{ fontSize:10, textTransform:'uppercase', letterSpacing:3, color:'#E8641D', fontWeight:700, marginBottom:8 }}>{s.sub}</span>
               <h3 style={{ fontFamily:'"Playfair Display",serif', fontSize:22, fontWeight:700, color:'#2B1B12', marginBottom:12 }}>{s.title}</h3>
