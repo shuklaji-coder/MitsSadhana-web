@@ -73,7 +73,9 @@ export const DownloadCTA = () => {
         >
           {/* Google Play Button */}
           <a
-            href="#"
+            href="https://play.google.com/store/apps/details?id=com.rohan2342.MitSadhana"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto px-8 py-4 rounded-full gold-primary-button flex items-center justify-center space-x-3 text-base tracking-wide shadow-[0_0_30px_rgba(232,100,29,0.5)]"
           >
             <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
